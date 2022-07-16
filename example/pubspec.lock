@@ -129,12 +129,12 @@ packages:
     source: hosted
     version: "1.7.0"
   mp_chart:
-    dependency: "direct main"
+    dependency: "direct overridden"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.3.1"
+    version: "0.3.2"
   optimized_gesture_detector:
     dependency: transitive
     description:
