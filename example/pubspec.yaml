@@ -34,7 +34,7 @@ dev_dependencies:
 
 dependency_overrides:
   mp_chart:
-    path : ../
+    path: ../
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
