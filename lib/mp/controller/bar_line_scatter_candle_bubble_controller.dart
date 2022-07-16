@@ -31,36 +31,36 @@ abstract class BarLineScatterCandleBubbleController<
   bool drawBorders;
   bool clipValuesToContent;
   double minOffset;
-  OnDrawListener drawListener;
-  YAxis axisLeft;
-  YAxis axisRight;
-  YAxisRenderer axisRendererLeft;
-  YAxisRenderer axisRendererRight;
-  Transformer leftAxisTransformer;
-  Transformer rightAxisTransformer;
-  XAxisRenderer xAxisRenderer;
-  bool customViewPortEnabled;
-  Matrix4 zoomMatrixBuffer;
-  bool pinchZoomEnabled;
-  bool keepPositionOnRotation;
+  OnDrawListener? drawListener;
+  YAxis? axisLeft;
+  YAxis? axisRight;
+  YAxisRenderer? axisRendererLeft;
+  YAxisRenderer? axisRendererRight;
+  Transformer? leftAxisTransformer;
+  Transformer? rightAxisTransformer;
+  XAxisRenderer? xAxisRenderer;
+  bool? customViewPortEnabled;
+  Matrix4? zoomMatrixBuffer;
+  bool? pinchZoomEnabled;
+  bool? keepPositionOnRotation;
 
-  Paint gridBackgroundPaint;
-  Paint borderPaint;
+  Paint? gridBackgroundPaint;
+  Paint? borderPaint;
 
-  Paint backgroundPaint;
-  Color gridBackColor;
-  Color borderColor;
-  Color backgroundColor;
-  double borderStrokeWidth;
+  Paint? backgroundPaint;
+  Color? gridBackColor;
+  Color? borderColor;
+  Color? backgroundColor;
+  double? borderStrokeWidth;
 
   /// this is used for user get touch event if they needed
-  OnTouchEventListener touchEventListener;
+  OnTouchEventListener? touchEventListener;
 
   /// this is used for have a callback when chart translate or scale
-  ChartTransListener chartTransListener;
+  ChartTransListener? chartTransListener;
 
-  AxisLeftSettingFunction axisLeftSettingFunction;
-  AxisRightSettingFunction axisRightSettingFunction;
+  AxisLeftSettingFunction? axisLeftSettingFunction;
+  AxisRightSettingFunction? axisRightSettingFunction;
 
   MPPointF _decelerationVelocity = MPPointF.getInstance1(0, 0);
 
@@ -108,13 +108,13 @@ abstract class BarLineScatterCandleBubbleController<
       this.axisRightSettingFunction,
       this.touchEventListener,
       this.chartTransListener,
-      IMarker marker,
-      Description description,
-      String noDataText = "No chart data available.",
-      XAxisSettingFunction xAxisSettingFunction,
-      LegendSettingFunction legendSettingFunction,
-      DataRendererSettingFunction rendererSettingFunction,
-      OnChartValueSelectedListener selectionListener,
+      IMarker? marker,
+      Description? description,
+      String? noDataText = "No chart data available.",
+      XAxisSettingFunction? xAxisSettingFunction,
+      LegendSettingFunction? legendSettingFunction,
+      DataRendererSettingFunction? rendererSettingFunction,
+      OnChartValueSelectedListener? selectionListener,
       double maxHighlightDistance = 100.0,
       bool highLightPerTapEnabled = true,
       double extraTopOffset = 0.0,
@@ -126,17 +126,17 @@ abstract class BarLineScatterCandleBubbleController<
       bool resolveGestureVerticalConflict = false,
       double descTextSize = 12,
       double infoTextSize = 12,
-      Color descTextColor,
-      Color infoTextColor,
-      Color infoBgColor})
+      Color? descTextColor,
+      Color? infoTextColor,
+      Color? infoBgColor})
       : super(
-            marker: marker,
-            description: description,
-            noDataText: noDataText,
-            xAxisSettingFunction: xAxisSettingFunction,
-            legendSettingFunction: legendSettingFunction,
-            rendererSettingFunction: rendererSettingFunction,
-            selectionListener: selectionListener,
+            marker: marker!,
+            description: description!,
+            noDataText: noDataText!,
+            xAxisSettingFunction: xAxisSettingFunction!,
+            legendSettingFunction: legendSettingFunction!,
+            rendererSettingFunction: rendererSettingFunction!,
+            selectionListener: selectionListener!,
             maxHighlightDistance: maxHighlightDistance,
             highLightPerTapEnabled: highLightPerTapEnabled,
             extraTopOffset: extraTopOffset,
@@ -148,11 +148,11 @@ abstract class BarLineScatterCandleBubbleController<
             resolveGestureVerticalConflict: resolveGestureVerticalConflict,
             descTextSize: descTextSize,
             infoTextSize: infoTextSize,
-            descTextColor: descTextColor,
-            infoBgColor: infoBgColor,
-            infoTextColor: infoTextColor);
+            descTextColor: descTextColor!,
+            infoBgColor: infoBgColor!,
+            infoTextColor: infoTextColor!);
 
-  OnDrawListener initDrawListener() {
+  OnDrawListener? initDrawListener() {
     return null;
   }
 

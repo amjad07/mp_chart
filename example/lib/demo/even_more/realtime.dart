@@ -27,7 +27,7 @@ class EvenMoreRealtime extends StatefulWidget {
 
 class EvenMoreRealtimeState extends ActionState<EvenMoreRealtime>
     implements OnChartValueSelectedListener {
-  LineChartController controller;
+ late LineChartController controller;
   var random = Random(1);
   var isMultipleRun = false;
 
@@ -142,7 +142,7 @@ class EvenMoreRealtimeState extends ActionState<EvenMoreRealtime>
         pinchZoomEnabled: true,
         description: desc);
 
-    LineData data = controller?.data;
+    LineData data = controller.data;
 
     if (data == null) {
       data = LineData();

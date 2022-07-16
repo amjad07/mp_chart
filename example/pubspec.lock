@@ -129,7 +129,7 @@ packages:
     source: hosted
     version: "1.7.0"
   mp_chart:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       path: ".."
       relative: true

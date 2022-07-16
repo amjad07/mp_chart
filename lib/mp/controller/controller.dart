@@ -19,7 +19,7 @@ import 'package:optimized_gesture_detector/gesture_dectetor.dart';
 abstract class Controller<P extends ChartPainter>
     implements AnimatorUpdateListener {
   ChartState state;
-  ChartData data;
+  ChartData? data;
   Animator animator;
   P _painter;
 

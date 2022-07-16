@@ -13,7 +13,7 @@ abstract class PieRadarChart<C extends PieRadarController> extends Chart<C> {
 
 abstract class PieRadarChartState<T extends PieRadarChart>
     extends ChartState<T> {
-  Highlight lastHighlighted;
+  Highlight? lastHighlighted;
   MPPointF _touchStartPoint = MPPointF.getInstance1(0, 0);
   double _startAngle = 0.0;
 
@@ -43,7 +43,7 @@ abstract class PieRadarChartState<T extends PieRadarChart>
       Highlight h = widget.controller.painter.getHighlightByTouchPoint(
           details.localPosition.dx, details.localPosition.dy);
       lastHighlighted = HighlightUtils.performHighlight(
-          widget.controller.painter, h, lastHighlighted);
+          widget.controller.painter, h, lastHighlighted!);
       setStateIfNotDispose();
     } else {
       lastHighlighted = null;
@@ -99,6 +99,6 @@ abstract class PieRadarChartState<T extends PieRadarChart>
     if (widget.controller.painter.getData() != null &&
         widget.controller.painter.getData().dataSets != null &&
         widget.controller.painter.getData().dataSets.length > 0)
-      widget.controller.painter.highlightValue6(lastHighlighted, false);
+      widget.controller.painter.highlightValue6(lastHighlighted!, false);
   }
 }

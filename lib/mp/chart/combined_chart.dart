@@ -19,10 +19,10 @@ class CombinedChart
 class CombinedChartState extends ChartState<CombinedChart> {
   @override
   void updatePainter() {
-    widget.controller.painter.highlightValue6(lastHighlighted, false);
+    widget.controller.painter.highlightValue6(lastHighlighted!, false);
   }
 
-  IDataSet _closestDataSetToTouch;
+  late IDataSet _closestDataSetToTouch;
 
   double _curX = 0.0;
   double _curY = 0.0;
@@ -30,7 +30,7 @@ class CombinedChartState extends ChartState<CombinedChart> {
   bool _isScaleDirectionConfirm = false;
   bool _isYDirection = false;
 
-  Highlight lastHighlighted;
+    Highlight? lastHighlighted;
 
   MPPointF _getTrans(double x, double y) {
     return Utils.local2Chart(widget.controller, x, y, inverted: _inverted());
@@ -79,7 +79,7 @@ class CombinedChartState extends ChartState<CombinedChart> {
       Highlight h = widget.controller.painter.getHighlightByTouchPoint(
           details.localPosition.dx, details.localPosition.dy);
       lastHighlighted = HighlightUtils.performHighlight(
-          widget.controller.painter, h, lastHighlighted);
+          widget.controller.painter, h, lastHighlighted!);
       setStateIfNotDispose();
     } else {
       lastHighlighted = null;
@@ -146,9 +146,9 @@ class CombinedChartState extends ChartState<CombinedChart> {
     if (widget.controller.painter.highlightPerDragEnabled) {
       final highlighted = widget.controller.painter.getHighlightByTouchPoint(
           details.localPoint.dx, details.localPoint.dy);
-      if (highlighted?.equalTo(lastHighlighted) == false) {
+      if (highlighted?.equalTo(lastHighlighted!) == false) {
         lastHighlighted = HighlightUtils.performHighlight(
-            widget.controller.painter, highlighted, lastHighlighted);
+            widget.controller.painter, highlighted, lastHighlighted!);
         needStateIfNotDispose = true;
       }
     }

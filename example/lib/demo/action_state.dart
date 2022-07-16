@@ -29,7 +29,7 @@ import 'package:mp_chart/mp/core/utils/color_utils.dart';
 import 'package:example/demo/util.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-PopupMenuItem item(String text, String id) {
+PopupMenuItem<String> item(String text, String id) {
   return PopupMenuItem<String>(
       value: id,
       child: Container(
@@ -133,7 +133,7 @@ abstract class SimpleActionState<T extends StatefulWidget>
 
 abstract class LineActionState<T extends StatefulWidget>
     extends ActionState<T> {
-  LineChartController controller;
+  late LineChartController controller;
 
   @override
   getBuilder() {
@@ -278,7 +278,7 @@ abstract class LineActionState<T extends StatefulWidget>
 }
 
 abstract class BarActionState<T extends StatefulWidget> extends ActionState<T> {
-  BarChartController controller;
+  late BarChartController controller;
 
   @override
   getBuilder() {
@@ -367,7 +367,7 @@ abstract class BarActionState<T extends StatefulWidget> extends ActionState<T> {
 
 abstract class HorizontalBarActionState<T extends StatefulWidget>
     extends ActionState<T> {
-  HorizontalBarChartController controller;
+  late HorizontalBarChartController controller;
 
   @override
   getBuilder() {
@@ -455,7 +455,7 @@ abstract class HorizontalBarActionState<T extends StatefulWidget>
 }
 
 abstract class PieActionState<T extends StatefulWidget> extends ActionState<T> {
-  PieChartController controller;
+  late PieChartController controller;
 
   @override
   getBuilder() {
@@ -564,7 +564,7 @@ abstract class PieActionState<T extends StatefulWidget> extends ActionState<T> {
 
 abstract class CombinedActionState<T extends StatefulWidget>
     extends ActionState<T> {
-  CombinedChartController controller;
+  late CombinedChartController controller;
 
   @override
   getBuilder() {
@@ -623,7 +623,7 @@ abstract class CombinedActionState<T extends StatefulWidget>
 
 abstract class ScatterActionState<T extends StatefulWidget>
     extends ActionState<T> {
-  ScatterChartController controller;
+  late ScatterChartController controller;
 
   @override
   getBuilder() {
@@ -705,7 +705,7 @@ abstract class ScatterActionState<T extends StatefulWidget>
 
 abstract class BubbleActionState<T extends StatefulWidget>
     extends ActionState<T> {
-  BubbleChartController controller;
+  late BubbleChartController controller;
 
   @override
   getBuilder() {
@@ -784,7 +784,7 @@ abstract class BubbleActionState<T extends StatefulWidget>
 
 abstract class CandlestickActionState<T extends StatefulWidget>
     extends ActionState<T> {
-  CandlestickChartController controller;
+  late CandlestickChartController controller;
 
   @override
   getBuilder() {
@@ -871,7 +871,7 @@ abstract class CandlestickActionState<T extends StatefulWidget>
 
 abstract class RadarActionState<T extends StatefulWidget>
     extends ActionState<T> {
-  RadarChartController controller;
+  late RadarChartController controller;
 
   @override
   getBuilder() {

@@ -25,7 +25,7 @@ class EvenMoreDynamic extends StatefulWidget {
 
 class EvenMoreDynamicState extends ActionState<EvenMoreDynamic>
     implements OnChartValueSelectedListener {
-  LineChartController controller;
+  late LineChartController controller;
 
   @override
   void initState() {
@@ -130,7 +130,7 @@ class EvenMoreDynamicState extends ActionState<EvenMoreDynamic>
   var random = Random(1);
 
   void _addEntry() {
-    LineData data = controller?.data;
+    LineData data = controller.data;
 
     if (data == null) {
       data = LineData();
@@ -180,7 +180,7 @@ class EvenMoreDynamicState extends ActionState<EvenMoreDynamic>
   }
 
   void _removeLastEntry() {
-    LineData data = controller?.data;
+    LineData data = controller.data;
     if (data != null) {
       ILineDataSet set = data.getDataSetByIndex(0);
       if (set != null) {
@@ -192,13 +192,13 @@ class EvenMoreDynamicState extends ActionState<EvenMoreDynamic>
   }
 
   void _addDataSet() {
-    LineData data = controller?.data;
+    LineData data = controller.data;
     if (data == null) {
       controller.data = LineData();
     } else {
       int count = (data.getDataSetCount() + 1);
       int amount = data.getDataSetByIndex(0).getEntryCount();
-      List<Entry> values = List();
+      List<Entry> values = [];
       for (int i = 0; i < amount; i++) {
         values.add(new Entry(
             x: i.toDouble(), y: (random.nextDouble() * 50) + 50 * count));

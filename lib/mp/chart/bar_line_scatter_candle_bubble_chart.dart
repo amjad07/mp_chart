@@ -18,9 +18,9 @@ abstract class BarLineScatterCandleBubbleChart<
 
 class BarLineScatterCandleBubbleState<T extends BarLineScatterCandleBubbleChart>
     extends ChartState<T> {
-  IDataSet _closestDataSetToTouch;
+ late IDataSet _closestDataSetToTouch;
 
-  Highlight lastHighlighted;
+    Highlight? lastHighlighted;
   double _curX = 0.0;
   double _curY = 0.0;
   double _scale = -1.0;
@@ -75,7 +75,7 @@ class BarLineScatterCandleBubbleState<T extends BarLineScatterCandleBubbleChart>
       Highlight h = widget.controller.painter.getHighlightByTouchPoint(
           details.localPosition.dx, details.localPosition.dy);
       lastHighlighted = HighlightUtils.performHighlight(
-          widget.controller.painter, h, lastHighlighted);
+          widget.controller.painter, h, lastHighlighted!);
       setStateIfNotDispose();
     } else {
       Highlight high = widget.controller.painter.getHighlightByTouchPoint(
@@ -149,9 +149,9 @@ class BarLineScatterCandleBubbleState<T extends BarLineScatterCandleBubbleChart>
     if (widget.controller.painter.highlightPerDragEnabled) {
       final highlighted = widget.controller.painter.getHighlightByTouchPoint(
           details.localPoint.dx, details.localPoint.dy);
-      if (highlighted?.equalTo(lastHighlighted) == false) {
+      if (highlighted?.equalTo(lastHighlighted!) == false) {
         lastHighlighted = HighlightUtils.performHighlight(
-            widget.controller.painter, highlighted, lastHighlighted);
+            widget.controller.painter, highlighted, lastHighlighted!);
         needStateIfNotDispose = true;
       }
     }
@@ -381,6 +381,6 @@ class BarLineScatterCandleBubbleState<T extends BarLineScatterCandleBubbleChart>
     if (widget.controller.painter.getData() != null &&
         widget.controller.painter.getData().dataSets != null &&
         widget.controller.painter.getData().dataSets.length > 0)
-      widget.controller.painter.highlightValue6(lastHighlighted, false);
+      widget.controller.painter.highlightValue6(lastHighlighted!, false);
   }
 }

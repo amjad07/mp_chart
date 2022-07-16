@@ -22,7 +22,7 @@ class LineChartFilled extends StatefulWidget {
 }
 
 class LineChartFilledState extends SimpleActionState<LineChartFilled> {
-  LineChartController _controller;
+  late LineChartController _controller;
   var random = Random(1);
   int _count = 45;
   double _range = 100.0;
@@ -170,14 +170,14 @@ class LineChartFilledState extends SimpleActionState<LineChartFilled> {
   }
 
   void _initLineData(int count, double range) {
-    List<Entry> values1 = new List();
+    List<Entry> values1 = [];
 
     for (int i = 0; i < count; i++) {
       double val = (random.nextDouble() * range) + 50;
       values1.add(new Entry(x: i.toDouble(), y: val));
     }
 
-    List<Entry> values2 = new List();
+    List<Entry> values2 = [];
 
     for (int i = 0; i < count; i++) {
       double val = (random.nextDouble() * range) + 450;
@@ -216,7 +216,7 @@ class LineChartFilledState extends SimpleActionState<LineChartFilled> {
     set2.setFillFormatter(B());
 
     // create a data object with the data sets
-    _controller.data = LineData.fromList(List()..add(set1)..add(set2));
+    _controller.data = LineData.fromList([]..add(set1)..add(set2));
     _controller.data.setDrawValues(false);
 
     setState(() {});
@@ -226,7 +226,7 @@ class LineChartFilledState extends SimpleActionState<LineChartFilled> {
 }
 
 class A implements IFillFormatter {
-  LineChartController _controller;
+  late LineChartController _controller;
 
   void setPainter(LineChartController controller) {
     _controller = controller;
@@ -235,12 +235,12 @@ class A implements IFillFormatter {
   @override
   double getFillLinePosition(
       ILineDataSet dataSet, LineDataProvider dataProvider) {
-    return _controller?.painter?.axisLeft?.axisMinimum;
+    return _controller.painter.axisLeft.axisMinimum;
   }
 }
 
 class B implements IFillFormatter {
-  LineChartController _controller;
+  late LineChartController _controller;
 
   void setPainter(LineChartController controller) {
     _controller = controller;
@@ -249,6 +249,6 @@ class B implements IFillFormatter {
   @override
   double getFillLinePosition(
       ILineDataSet dataSet, LineDataProvider dataProvider) {
-    return _controller?.painter?.axisLeft?.axisMaximum;
+    return _controller.painter.axisLeft.axisMaximum;
   }
 }
