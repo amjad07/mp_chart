@@ -4,18 +4,18 @@ import 'package:mp_chart/mp/core/utils/utils.dart';
 
 abstract class PainterUtils {
   static TextPainter create(
-      TextPainter painter, String text, Color color, double fontSize,
+      TextPainter? painter, String? text, Color color, double fontSize,
       {String fontFamily, FontWeight fontWeight = FontWeight.w400}) {
     if (painter == null) {
-      return _create(text, color, fontSize,
+      return _create(text!, color, fontSize,
           fontFamily: fontFamily, fontWeight: fontWeight);
     }
 
     if (painter.text != null && (painter.text is TextSpan)) {
       var preText = (painter.text as TextSpan).text;
-      var preColor = painter.text.style.color;
+      var preColor = painter.text!.style!.color;
       preColor = preColor == null ? ColorUtils.BLACK : preColor;
-      var preFontSize = painter.text.style.fontSize;
+      var preFontSize = painter.text!.style!.fontSize;
       preFontSize =
           preFontSize == null ? Utils.convertDpToPixel(13) : preFontSize;
       return _create(

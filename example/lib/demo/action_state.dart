@@ -239,7 +239,7 @@ abstract class LineActionState<T extends StatefulWidget>
         controller.state.setStateIfNotDispose();
         break;
       case 'I':
-        controller.pinchZoomEnabled = !controller.pinchZoomEnabled;
+        controller.pinchZoomEnabled = !controller.pinchZoomEnabled!;
         controller.state.setStateIfNotDispose();
         break;
       case 'J':
@@ -334,7 +334,7 @@ abstract class BarActionState<T extends StatefulWidget> extends ActionState<T> {
         }
         break;
       case 'F':
-        controller.pinchZoomEnabled = !controller.pinchZoomEnabled;
+        controller.pinchZoomEnabled = !controller.pinchZoomEnabled!;
         controller.state.setStateIfNotDispose();
         break;
       case 'G':
@@ -423,7 +423,7 @@ abstract class HorizontalBarActionState<T extends StatefulWidget>
         }
         break;
       case 'F':
-        controller.pinchZoomEnabled = !controller.pinchZoomEnabled;
+        controller.pinchZoomEnabled = !controller.pinchZoomEnabled!;
         controller.state.setStateIfNotDispose();
         break;
       case 'G':
@@ -687,7 +687,7 @@ abstract class ScatterActionState<T extends StatefulWidget>
           ..animateXY1(3000, 3000);
         break;
       case 'H':
-        controller.pinchZoomEnabled = !controller.pinchZoomEnabled;
+        controller.pinchZoomEnabled = !controller.pinchZoomEnabled!;
         controller.state.setStateIfNotDispose();
         break;
       case 'I':
@@ -766,7 +766,7 @@ abstract class BubbleActionState<T extends StatefulWidget>
           ..animateXY1(2000, 2000);
         break;
       case 'H':
-        controller.pinchZoomEnabled = !controller.pinchZoomEnabled;
+        controller.pinchZoomEnabled = !controller.pinchZoomEnabled!;
         controller.state.setStateIfNotDispose();
         break;
       case 'I':
@@ -846,7 +846,7 @@ abstract class CandlestickActionState<T extends StatefulWidget>
           ..animateXY1(2000, 2000);
         break;
       case 'H':
-        controller.pinchZoomEnabled = !controller.pinchZoomEnabled;
+        controller.pinchZoomEnabled = !controller.pinchZoomEnabled!;
         controller.state.setStateIfNotDispose();
         break;
       case 'I':
@@ -947,7 +947,7 @@ abstract class RadarActionState<T extends StatefulWidget>
         controller.state.setStateIfNotDispose();
         break;
       case 'I':
-        controller.xAxis.enabled = !controller.xAxis.enabled;
+        controller.xAxis!.enabled = !controller.xAxis!.enabled;
         controller.state.setStateIfNotDispose();
         break;
       case 'J':
