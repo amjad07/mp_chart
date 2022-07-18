@@ -943,7 +943,7 @@ abstract class RadarActionState<T extends StatefulWidget>
         controller.state.setStateIfNotDispose();
         break;
       case 'H':
-        controller.yAxis.enabled = !controller.yAxis.enabled;
+        controller.yAxis!.enabled = !controller.yAxis!.enabled;
         controller.state.setStateIfNotDispose();
         break;
       case 'I':

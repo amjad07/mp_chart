@@ -4,11 +4,11 @@ import 'package:mp_chart/mp/core/utils/utils.dart';
 
 abstract class PainterUtils {
   static TextPainter create(
-      TextPainter? painter, String? text, Color color, double fontSize,
-      {String fontFamily, FontWeight fontWeight = FontWeight.w400}) {
+      TextPainter? painter, String? text, Color? color, double fontSize,
+      {String? fontFamily, FontWeight fontWeight = FontWeight.w400}) {
     if (painter == null) {
-      return _create(text!, color, fontSize,
-          fontFamily: fontFamily, fontWeight: fontWeight);
+      return _create(text!, color!, fontSize,
+          fontFamily: fontFamily!, fontWeight: fontWeight);
     }
 
     if (painter.text != null && (painter.text is TextSpan)) {
@@ -25,24 +25,24 @@ abstract class PainterUtils {
           fontFamily: fontFamily,
           fontWeight: fontWeight);
     } else {
-      return _create(text, color, fontSize,
+      return _create(text, color!, fontSize,
           fontFamily: fontFamily, fontWeight: fontWeight);
     }
   }
 
-  static TextPainter _create(String text, Color color, double fontSize,
-      {String fontFamily, FontWeight fontWeight = FontWeight.w400}) {
+  static TextPainter _create(String? text, Color color, double fontSize,
+      {String? fontFamily, FontWeight fontWeight = FontWeight.w400}) {
     return TextPainter(
         textAlign: TextAlign.center,
         textDirection: TextDirection.ltr,
         text: TextSpan(
             text: text,
             style: createTextStyle(color, fontSize,
-                fontFamily: fontFamily, fontWeight: fontWeight)));
+                fontFamily: fontFamily!, fontWeight: fontWeight)));
   }
 
   static TextStyle createTextStyle(Color color, double fontSize,
-      {String fontFamily, FontWeight fontWeight = FontWeight.w400}) {
+      {String? fontFamily, FontWeight fontWeight = FontWeight.w400}) {
     if (fontWeight == null) {
       fontWeight = FontWeight.w400;
     }

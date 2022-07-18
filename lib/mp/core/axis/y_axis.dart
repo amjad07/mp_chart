@@ -44,7 +44,7 @@ class YAxis extends AxisBase {
   YAxisLabelPosition _position = YAxisLabelPosition.OUTSIDE_CHART;
 
   /// the side this axis object represents
-  AxisDependency _axisDependency;
+  AxisDependency? _axisDependency;
 
   /// the minimum width that the axis should take (in dp).
   /// <p/>
@@ -61,7 +61,7 @@ class YAxis extends AxisBase {
     yOffset = 0;
   }
 
-  AxisDependency get axisDependency => _axisDependency;
+  AxisDependency get axisDependency => _axisDependency!;
 
   // ignore: unnecessary_getters_setters
   double get minWidth => _minWidth;

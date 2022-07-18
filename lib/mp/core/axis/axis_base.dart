@@ -9,7 +9,7 @@ import 'package:mp_chart/mp/core/value_formatter/value_formatter.dart';
 
 abstract class AxisBase extends ComponentBase {
   /// custom formatter that is used instead of the auto-formatter if set
-  ValueFormatter _axisValueFormatter;
+  ValueFormatter? _axisValueFormatter;
 
   Color _gridColor = ColorUtils.GRAY;
 
@@ -19,9 +19,9 @@ abstract class AxisBase extends ComponentBase {
 
   double _axisLineWidth = 1;
 
-  List<double> _entries = List();
+  List<double> _entries = [];
 
-  List<double> _centeredEntries = List();
+  List<double> _centeredEntries = [];
 
   /// the number of entries the legend contains
   int _entryCount = 0;
@@ -56,13 +56,13 @@ abstract class AxisBase extends ComponentBase {
   bool _centerAxisLabels = false;
 
   /// the path effect of the axis line that makes dashed lines possible
-  DashPathEffect _axisLineDashPathEffect;
+  DashPathEffect? _axisLineDashPathEffect;
 
   /// the path effect of the grid lines that makes dashed lines possible
-  DashPathEffect _gridDashPathEffect;
+  DashPathEffect? _gridDashPathEffect;
 
   /// array of limit lines that can be set for the axis
-  List<LimitLine> _limitLines;
+  List<LimitLine>? _limitLines;
 
   /// flag indicating the limit lines layer depth
   bool _drawLimitLineBehindData = false;
@@ -95,11 +95,11 @@ abstract class AxisBase extends ComponentBase {
     textSize = 10;
     xOffset = 5;
     yOffset = 5;
-    this._limitLines = List<LimitLine>();
+    this._limitLines = <LimitLine>[];
   }
 
   // ignore: unnecessary_getters_setters
-  ValueFormatter get axisValueFormatter => _axisValueFormatter;
+  ValueFormatter get axisValueFormatter => _axisValueFormatter!;
 
   // ignore: unnecessary_getters_setters
   set axisValueFormatter(ValueFormatter value) {
@@ -253,26 +253,26 @@ abstract class AxisBase extends ComponentBase {
   ///
   /// @param l
   void addLimitLine(LimitLine l) {
-    _limitLines.add(l);
+    _limitLines!.add(l);
   }
 
   /// Removes the specified LimitLine from the axis.
   ///
   /// @param l
   void removeLimitLine(LimitLine l) {
-    _limitLines.remove(l);
+    _limitLines!.remove(l);
   }
 
   /// Removes all LimitLines from the axis.
   void removeAllLimitLines() {
-    _limitLines.clear();
+    _limitLines!.clear();
   }
 
   /// Returns the LimitLines of this axis.
   ///
   /// @return
   List<LimitLine> getLimitLines() {
-    return _limitLines;
+    return _limitLines!;
   }
 
   // ignore: unnecessary_getters_setters
@@ -338,7 +338,7 @@ abstract class AxisBase extends ComponentBase {
                 _decimals))
       _axisValueFormatter = DefaultAxisValueFormatter(_decimals);
 
-    return _axisValueFormatter;
+    return _axisValueFormatter!;
   }
 
   /// Enables the grid line to be drawn in dashed mode, e.g. like this
@@ -354,7 +354,7 @@ abstract class AxisBase extends ComponentBase {
   }
 
   // ignore: unnecessary_getters_setters
-  DashPathEffect get gridDashPathEffect => _gridDashPathEffect;
+  DashPathEffect get gridDashPathEffect => _gridDashPathEffect!;
 
   // ignore: unnecessary_getters_setters
   set gridDashPathEffect(DashPathEffect value) {
@@ -399,7 +399,7 @@ abstract class AxisBase extends ComponentBase {
   }
 
   // ignore: unnecessary_getters_setters
-  DashPathEffect get axisLineDashPathEffect => _axisLineDashPathEffect;
+  DashPathEffect get axisLineDashPathEffect => _axisLineDashPathEffect!;
 
   // ignore: unnecessary_getters_setters
   set axisLineDashPathEffect(DashPathEffect value) {
@@ -552,7 +552,7 @@ abstract class AxisBase extends ComponentBase {
   }
 
   // ignore: unnecessary_getters_setters
-  List<LimitLine> get limitLines => _limitLines;
+  List<LimitLine> get limitLines => _limitLines!;
 
   // ignore: unnecessary_getters_setters
   set limitLines(List<LimitLine> value) {
